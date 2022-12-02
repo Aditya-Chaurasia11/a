@@ -1,0 +1,19 @@
+
+//fulladder
+module half_add(s,c,a,b);
+input a,b;
+output s,c;
+xor(s,a,b);
+and (c,a,b);
+endmodule
+
+module full_add(s,co,a,b,ci);
+input a,b,ci;
+output s,co;
+wire w1,w2,w3;
+half_add h1 (w1,w2,a,b);
+half_add h2 (s,w3,w1,ci);
+or (co,w2,w3);
+endmodule
+
+
